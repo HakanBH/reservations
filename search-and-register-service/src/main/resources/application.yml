@@ -1,0 +1,28 @@
+# HTTP Server
+
+server:
+  port: 2222   # HTTP (Tomcat) port
+
+spring:
+  application:
+    name: search-and-register-service
+
+eureka:
+  instance:
+     leaseRenewalIntervalInSeconds: 5  # DO NOT DO THIS IN PRODUCTION
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80
+
+# Logging
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG

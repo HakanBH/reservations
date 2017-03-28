@@ -1,0 +1,27 @@
+# HTTP Server
+server:
+  port: 3333  # HTTP (Tomcat) port
+
+spring:
+  application:
+    name: reservations-service
+
+eureka:
+  instance:
+     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+---
+#spring:
+#  profiles: cloud
+#eureka:
+#  instance:
+#    hostname: ${APPLICATION_DOMAIN}
+#    nonSecurePort: 80
+#
+#spring:
+#  jpa:
+#    generate-ddl: true

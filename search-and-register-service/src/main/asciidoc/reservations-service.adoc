@@ -1,0 +1,266 @@
+= Reservations Service API
+Hakan Hyusein
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+
+Reservations service is a service which is responsible for the facility reservation functionality.
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+Reservations service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+Reservations service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| Standard response for successful HTTP requests.
+  The actual response will depend on the request method used.
+  In a GET request, the response will contain an entity corresponding to the requested resource.
+  In a POST request, the response will contain an entity describing or containing the result of the action.
+
+| `201 Created`
+| The request has been fulfilled and resulted in a new resource being created.
+
+| `204 No Content`
+| The server successfully processed the request, but is not returning any content.
+
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+|===
+
+
+[[resources]]
+= Resources
+
+[[resources-index]]
+== Index
+
+The index provides the entry point into the service.
+
+[[resources-index-access]]
+=== Accessing the index
+
+A `GET` request is used to access the index
+
+==== Response structure
+
+include::{snippets}/index/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/index/http-response.adoc[]
+
+[[resources-index-links]]
+==== Links
+
+include::{snippets}/index/links.adoc[]
+
+
+[[resources-users]]
+== Users
+
+The Users resource is used to get and create users.
+
+[[resource-users-get]]
+=== Get All Users
+A `GET` request lists all regular users in the database.
+
+==== Response structure
+
+include::{snippets}/users-get/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/users-get/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/users-get/http-response.adoc[]
+
+[[resources-users-create]]
+=== Create a user
+
+A `POST` request is used to create a new user
+
+==== Request structure
+
+include::{snippets}/users-create/request-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/users-create/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/users-create/http-response.adoc[]
+
+
+[[resources-user]]
+== User
+
+The User resource is used to retrieve, update, and delete individual users.
+
+
+[[resources-user-links]]
+=== Links
+
+include::{snippets}/user-get/links.adoc[]
+
+
+[[resources-user-retrieve]]
+=== Retrieve a user
+
+A `GET` request will retrieve the details of a user
+
+==== Response structure
+
+include::{snippets}/user-get/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/user-get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/user-get/http-response.adoc[]
+
+
+[[resources-user-update]]
+=== Update a user
+
+A `PATCH` request is used to update a user
+
+==== Request structure
+
+include::{snippets}/user-update/request-fields.adoc[]
+
+To leave an attribute of a user unchanged, any of the above may be omitted from the request.
+
+==== Example request
+
+include::{snippets}/user-update/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/user-update/http-response.adoc[]
+
+// FACILITIES RESOURCE
+
+[[resources-facilities]]
+== Facilities
+
+The Facilities resource is used to get and create facilities.
+
+[[resource-facilities-get]]
+=== Get All Facilities
+A `GET` request lists all regular users in the database.
+
+==== Response structure
+
+include::{snippets}/facilities-get/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/facilities-get/http-request.adoc[]
+
+==== Example response
+
+include::{snippets}/facilities-get/http-response.adoc[]
+
+[[resources-facilities-create]]
+=== Create a facility
+
+A `POST` request is used to create a new facility
+
+==== Request structure
+
+include::{snippets}/facilities-create/request-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/facilities-create/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/facilities-create/http-response.adoc[]
+
+[[resources-facility]]
+== Facility
+The Facility resource is used to retrieve, update, and delete facilities.
+
+
+[[resources-facilities-links]]
+=== Links
+
+include::{snippets}/facility-get/links.adoc[]
+
+
+[[resources-facility-retrieve]]
+=== Retrieve a facility
+
+A `GET` request will retrieve the details of a facility
+
+==== Response structure
+
+include::{snippets}/facility-get/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/facility-get/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/facility-get/http-response.adoc[]
+
+[[resources-facility-update]]
+=== Update a facility
+
+A `PATCH` request is used to update a facility
+
+==== Request structure
+
+include::{snippets}/facility-update/request-fields.adoc[]
+
+To leave an attribute of a facility unchanged, any of the above may be omitted from the request.
+
+==== Example request
+
+include::{snippets}/facility-update/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/facility-update/http-response.adoc[]
+
