@@ -6,10 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by Toncho_Petrov on 7/13/2016.
- */
-
 @Entity
 @Table(name = "address")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

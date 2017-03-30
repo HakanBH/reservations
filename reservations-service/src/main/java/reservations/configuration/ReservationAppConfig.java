@@ -9,10 +9,6 @@ import reservations.configuration.security.ReservationInterceptorHandler;
 
 import java.util.List;
 
-/**
- * Created by Toncho_Petrov on 10/19/2016.
- */
-
 @Configuration
 @ComponentScan({"reservations.configuration"})
 @EnableWebMvc

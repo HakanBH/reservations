@@ -1,8 +1,5 @@
 package reservations.model;
 
-/**
- * Created by Trayan_Muchev on 9/15/2016.
- */
 public class UserAndReservation {
 
     private User user;

@@ -9,16 +9,9 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * Created by Toncho_Petrov on 7/13/2016.
- */
-
 @Entity
 @Table(name = "reservation")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Reservation implements Serializable {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,15 +20,11 @@ public class Reservation implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facility_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
     private Facility facility;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
     private User user;
 
     @Min(value = 0)
@@ -54,13 +43,8 @@ public class Reservation implements Serializable {
     @Column(name = "deposit")
     private Boolean deposit;
 
-    private AtomicInteger atomicInt;
 
     public Reservation() {
-    }
-
-    public Reservation(AtomicInteger atomicInt) {
-        this.atomicInt = atomicInt;
     }
 
     public Reservation(Facility facility, User user, Integer fromHour, Integer toHour, Date date, Boolean deposit) {
@@ -70,14 +54,6 @@ public class Reservation implements Serializable {
         this.toHour = toHour;
         this.date = date;
         this.deposit = deposit;
-    }
-
-    public AtomicInteger getAtomicInt() {
-        return atomicInt;
-    }
-
-    public void setAtomicInt(AtomicInteger atomicInt) {
-        this.atomicInt = atomicInt;
     }
 
     public Integer getId() {

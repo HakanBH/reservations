@@ -2,6 +2,9 @@ package polling.model;
 
 import org.springframework.data.rest.core.annotation.RestResource;
 
+import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,19 +16,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import java.io.Serializable;
-import java.sql.Date;
-import java.util.concurrent.atomic.AtomicInteger;
-
-/**
- * Created by Toncho_Petrov on 1/4/2017.
- */
 
 @Entity
 @Table(name = "reservation")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Reservation implements Serializable {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,15 +29,12 @@ public class Reservation implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facility_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
+
     private Facility facility;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
     private User user;
 
     @Min(value = 0)
@@ -62,14 +53,7 @@ public class Reservation implements Serializable {
     @Column(name = "deposit")
     private Boolean deposit;
 
-    private AtomicInteger atomicInt;
-
-
     public Reservation() {
-    }
-
-    public Reservation(AtomicInteger atomicInt) {
-        this.atomicInt = atomicInt;
     }
 
     public Reservation(Facility facility, User user, Integer fromHour, Integer toHour, Date date, Boolean deposit) {
@@ -79,14 +63,6 @@ public class Reservation implements Serializable {
         this.toHour = toHour;
         this.date = date;
         this.deposit = deposit;
-    }
-
-    public AtomicInteger getAtomicInt() {
-        return atomicInt;
-    }
-
-    public void setAtomicInt(AtomicInteger atomicInt) {
-        this.atomicInt = atomicInt;
     }
 
     public Integer getId() {
@@ -144,5 +120,4 @@ public class Reservation implements Serializable {
     public void setDeposit(Boolean deposit) {
         this.deposit = deposit;
     }
-
 }

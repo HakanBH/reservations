@@ -8,9 +8,6 @@ import polling.model.Picture;
 import polling.model.Reservation;
 import polling.model.User;
 
-/**
- * Created by Toncho_Petrov on 1/4/2017.
- */
 @Configuration
 public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
     @Override

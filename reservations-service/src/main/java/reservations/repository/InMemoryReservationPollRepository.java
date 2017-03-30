@@ -7,10 +7,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-
-/**
- * Created by Toncho_Petrov on 1/3/2017.
- */
 @Repository
 public class InMemoryReservationPollRepository implements ReservationPollRepository {
 

@@ -11,9 +11,6 @@ import reservations.model.User;
 
 import java.util.List;
 
-/**
- * Created by Trayan_Muchev on 9/8/2016.
- */
 @Component
 @FeignClient("search-and-register-service")
 public interface SearchAndRegisterClient {

@@ -20,9 +20,6 @@ import java.sql.Date;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
-/**
- * Created by Trayan_Muchev on 9/8/2016.
- */
 @RestController
 @RequestMapping(value = "/reservations")
 public class ReservationController {

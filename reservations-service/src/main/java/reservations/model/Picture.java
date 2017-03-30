@@ -6,9 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-/**
- * Created by Hakan_Hyusein on 8/17/2016.
- */
 @Entity
 @Table(name = "pictures")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

@@ -9,9 +9,6 @@ import reservations.model.StatusType;
 import java.sql.Date;
 import java.util.List;
 
-/**
- * Created by Trayan_Muchev on 1/16/2017.
- */
 public interface PendingAndRejectedReservationsRepository extends CrudRepository<PendingAndRejectedReservation, Integer> {
 
     @Query("select P from PendingAndRejectedReservation P inner join P.facility F inner join P.user U where" +

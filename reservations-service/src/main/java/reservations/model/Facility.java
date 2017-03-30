@@ -12,9 +12,6 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by Toncho_Petrov on 7/13/2016.
- */
 @Entity
 @Table(name = "facility")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})

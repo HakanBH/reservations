@@ -12,23 +12,26 @@ security:
 server:
   port: 4444  # HTTP (Tomcat) port
 
-spring:
-  application:
-    name: admin-panel
-
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
----
-#spring:
-#  profiles: cloud
-#eureka:
-#  instance:
-#    hostname: ${APPLICATION_DOMAIN}
-#    nonSecurePort: 80
-#
-#spring:
-#  jpa:
-#    generate-ddl: true
+spring:
+  application:
+    name: admin-panel
+  database:
+    driverClassName: org.postgresql.ds.PGPoolingDataSource
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservations
+    username: postgres
+    password: postgres1234
+    className: rg.postgresql.ds.PGPoolingDataSource
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true

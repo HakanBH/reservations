@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-/**
- * Created by Toncho_Petrov on 1/4/2016.
- */
-
 @ControllerAdvice
 public class ReservationControllerAdvice extends ResponseEntityExceptionHandler {
 

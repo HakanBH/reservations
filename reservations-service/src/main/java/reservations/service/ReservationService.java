@@ -6,9 +6,6 @@ import reservations.model.Reservation;
 import java.sql.Date;
 import java.util.List;
 
-/**
- * Created by Trayan_Muchev on 9/9/2016.
- */
 public interface ReservationService {
     Reservation save(Reservation reservation);
 

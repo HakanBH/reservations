@@ -11,9 +11,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created by Toncho_Petrov on 10/19/2016.
- */
 @ComponentScan(basePackages = "polling.configuration.security")
 public class PollingInterceptorHandler extends HandlerInterceptorAdapter {
 

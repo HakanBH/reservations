@@ -14,9 +14,6 @@ import java.util.List;
 
 import static java.lang.Boolean.FALSE;
 
-/**
- * Created by Trayan_Muchev on 9/9/2016.
- */
 @Service("reservationService")
 @Transactional
 public class ReservationServiceImpl implements ReservationService {

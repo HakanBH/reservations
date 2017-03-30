@@ -12,14 +12,8 @@ server:
 management:
   port: 8761
 
-
 # Logging
 logging:
   level:
     ROOT: INFO
     org.springframework.web: DEBUG
-
-security:
-   user:
-      name: user
-      password: 1234

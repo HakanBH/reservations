@@ -8,16 +8,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
-import polling.PollingApp;
-
-import static org.junit.Assert.*;
+import polling.PollingApplication;
 
 /**
  * Created by Toncho_Petrov on 1/12/2017.
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = PollingApp.class)
+@SpringApplicationConfiguration(classes = PollingApplication.class)
 @WebAppConfiguration
 @Transactional
 @ComponentScan("reservations.controllers")

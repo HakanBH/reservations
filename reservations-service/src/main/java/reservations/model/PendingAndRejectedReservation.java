@@ -8,9 +8,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
-/**
- * Created by Trayan_Muchev on 1/16/2017.
- */
 @Entity
 @Table(name = "pending_rejected_reservations")
 public class PendingAndRejectedReservation {
@@ -22,15 +19,11 @@ public class PendingAndRejectedReservation {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facility_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
     private Facility facility;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
     private User user;
 
     @Min(value = 0)

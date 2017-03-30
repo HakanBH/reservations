@@ -7,12 +7,8 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.sql.Date;
 
-/**
- * Created by Trayan_Muchev on 11/9/2016.
- */
 @Entity
 @Table(name = "canceled_reservations")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CanceledReservations {
 
     @Id
@@ -23,15 +19,11 @@ public class CanceledReservations {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facility_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
     private Facility facility;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @RestResource(exported = false)
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    @NotNull
     private User user;
 
     @Min(value = 0)

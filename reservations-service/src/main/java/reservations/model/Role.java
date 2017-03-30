@@ -7,11 +7,6 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by Toncho_Petrov on 7/13/2016.
- */
-
-
 @Entity
 @Table(name = "role")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

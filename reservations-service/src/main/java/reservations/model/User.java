@@ -18,9 +18,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by Toncho_Petrov on 7/13/2016.
- */
 @Entity
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -28,7 +25,6 @@ import java.util.List;
 public class User implements UserDetails {
     public static final int PHONE_NUMBER_WITH_BULGARIAN_CODE = 13;
     public static final String DEFAULT_PROFILE_PIC = "C:" + File.separator + "images" + File.separator + "default.png";
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +44,6 @@ public class User implements UserDetails {
     private String lastName;
 
     @Column(name = "password")
-//    @NotNull
     private String password;
 
     @Value("false")

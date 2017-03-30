@@ -8,9 +8,6 @@ import reservations.model.Picture;
 import reservations.model.Reservation;
 import reservations.model.User;
 
-/**
- * Created by Trayan_Muchev on 9/9/2016.
- */
 @Configuration
 public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
 

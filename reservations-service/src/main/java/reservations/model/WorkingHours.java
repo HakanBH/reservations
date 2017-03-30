@@ -8,9 +8,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.util.List;
 
-/**
- * Created by Hakan_Hyusein on 8/3/2016.
- */
 @Entity
 @Table(name = "working_hours")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

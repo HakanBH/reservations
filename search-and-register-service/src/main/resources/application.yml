@@ -1,28 +1,42 @@
-# HTTP Server
+spring:
+  application:
+    name: reservations-app
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservations
+    username: postgres
+    password: postgres1234
+    driverClassName: org.postgresql.Driver
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+security:
+  basic:
+    enabled: false
 
 server:
   port: 2222   # HTTP (Tomcat) port
 
-spring:
-  application:
-    name: search-and-register-service
-
 eureka:
   instance:
-     leaseRenewalIntervalInSeconds: 5  # DO NOT DO THIS IN PRODUCTION
+    hostname: reservations-app
+    nonSecurePort: 80
+    leaseRenewalIntervalInSeconds: 5
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
----
-spring:
-  profiles: cloud
-eureka:
-  instance:
-    hostname: ${APPLICATION_DOMAIN}
-    nonSecurePort: 80
-
 # Logging
 logging:
   level:
     ROOT: INFO
     org.springframework.web: DEBUG
+
+multipart:
+  maxFileSize: 100MB
+  maxRequestSize: 100MB
+

@@ -11,10 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by Toncho_Petrov on 10/18/2016.
- */
-
 @Component
 @Configuration
 @EnableWebSecurity

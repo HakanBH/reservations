@@ -2,9 +2,6 @@ package polling.model.polling;
 
 import polling.model.Reservation;
 
-/**
- * Created by Toncho_Petrov on 1/10/2017.
- */
 public class Polling {
 
     private Reservation newReservation;

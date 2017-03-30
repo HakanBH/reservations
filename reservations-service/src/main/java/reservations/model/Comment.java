@@ -8,9 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Date;
 
-/**
- * Created by Toncho_Petrov on 7/13/2016.
- */
+
 @Entity
 @Table(name = "comment")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

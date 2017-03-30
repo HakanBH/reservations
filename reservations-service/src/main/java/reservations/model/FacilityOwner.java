@@ -9,10 +9,6 @@ import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by Hakan_Hyusein on 7/27/2016.
- */
-
 @Entity
 @Table(name = "facility_owner")
 @PrimaryKeyJoinColumn(name = "user_id")
