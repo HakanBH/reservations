@@ -41,20 +41,10 @@ public class Producer {
         channelDeleteReservation = connectionDeleteReservation.createChannel();
     }
 
-    @PreDestroy
-    private void closeConnection() throws IOException, TimeoutException {
-
-        channelNewReservation.close();
-        connectionNewReservation.close();
-
-        channelDeleteReservation.close();
-        connectionDeleteReservation.close();
-    }
-
     public void sendNewReservation(Reservation reservation) throws IOException, TimeoutException {
         channelNewReservation.queueDeclare(NEW_RESERVATION_QUEUE_NAME, true, false, false, null);
 
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        ObjectWriter ow = new ObjectMapper().writer();
         String json = ow.writeValueAsString(reservation);
 
         channelNewReservation.basicPublish("", NEW_RESERVATION_QUEUE_NAME, null, json.getBytes());
@@ -63,9 +53,18 @@ public class Producer {
     public void sendDeletedReservation(Reservation reservation) throws IOException, TimeoutException {
         channelDeleteReservation.queueDeclare(DELETED_RESERVATION_QUEUE_NAME, true, false, false, null);
 
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        ObjectWriter ow = new ObjectMapper().writer();
         String json = ow.writeValueAsString(reservation);
 
         channelDeleteReservation.basicPublish("", DELETED_RESERVATION_QUEUE_NAME, null, json.getBytes());
+    }
+
+    @PreDestroy
+    private void closeConnection() throws IOException, TimeoutException {
+        channelNewReservation.close();
+        connectionNewReservation.close();
+
+        channelDeleteReservation.close();
+        connectionDeleteReservation.close();
     }
 }

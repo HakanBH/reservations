@@ -31,7 +31,7 @@ public class ReservationController {
     private JsonWebTokenUtility tokenUtility;
 
     @Autowired
-    SearchAndRegisterClient searchAndRegisterClient;
+    private SearchAndRegisterClient searchAndRegisterClient;
 
     private ReservationService reservationService;
 
@@ -74,7 +74,7 @@ public class ReservationController {
 
     @PreAuthorize("hasAnyAuthority('ROLE_USER','ROLE_ADMIN','ROLE_FACILITY_OWNER')")
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity addReservation(@RequestHeader("Authorization") String token, @RequestBody Reservation reservation) {
+    public ResponseEntity create(@RequestHeader("Authorization") String token, @RequestBody Reservation reservation) {
 
         detailsDTO = tokenUtility.parseAndValidate(token);
         if (detailsDTO != null) {

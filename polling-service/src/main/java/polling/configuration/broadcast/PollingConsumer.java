@@ -41,12 +41,12 @@ public class PollingConsumer {
 
 
     public GetResponse getNewReservation() throws IOException, TimeoutException, ShutdownSignalException {
-        channelNewReservation.queueDeclarePassive(NEW_RESERVATION_QUEUE_NAME);
+        channelNewReservation.queueDeclare(NEW_RESERVATION_QUEUE_NAME, true, false, false, null);
         return channelNewReservation.basicGet(NEW_RESERVATION_QUEUE_NAME, false);
     }
 
     public GetResponse getDeletedReservation() throws IOException, TimeoutException, ShutdownSignalException {
-        channelDeleteReservation.queueDeclarePassive(DELETED_RESERVATION_QUEUE_NAME);
+        channelNewReservation.queueDeclare(DELETED_RESERVATION_QUEUE_NAME, true, false, false, null);
         return channelDeleteReservation.basicGet(DELETED_RESERVATION_QUEUE_NAME, false);
     }
 

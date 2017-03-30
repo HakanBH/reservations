@@ -1,27 +1,33 @@
 package search.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 
 @Service
 public class MailService {
-    private MailSender mailSender;
-    private SimpleMailMessage simpleMailMessage;
 
-    public void setSimpleMailMessage(SimpleMailMessage simpleMailMessage) {
-        this.simpleMailMessage = simpleMailMessage;
-    }
+    @Autowired
+    private JavaMailSender javaMailSender;
 
-    public void setMailSender(MailSender mailSender) {
-        this.mailSender = mailSender;
-    }
+    public void sendEmail(String subject, String content, String receiver){
+        MimeMessage mail = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = null;
+        try {
+            helper = new MimeMessageHelper(mail, true);
+            helper.setTo(receiver);
+            helper.setSubject(subject);
+            helper.setText(content);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
 
-    public void sendMail(String subject, String content, String receiver) {
-        SimpleMailMessage message = new SimpleMailMessage(simpleMailMessage);
-        message.setSubject(subject);
-        message.setText(String.format(simpleMailMessage.getText(), content));
-        message.setTo(receiver);
-        mailSender.send(message);
+        javaMailSender.send(mail);
     }
 }

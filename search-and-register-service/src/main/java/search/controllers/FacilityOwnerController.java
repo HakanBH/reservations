@@ -13,6 +13,7 @@ import search.model.FacilityOwner;
 import search.model.RoleType;
 import search.model.User;
 import search.model.dto.CreateUser;
+import search.service.MailService;
 import search.service.persistence.FacilityOwnerService;
 import search.service.persistence.FacilityService;
 import search.service.persistence.UserService;
@@ -45,6 +46,9 @@ public class FacilityOwnerController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    MailService mailService;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<FacilityOwner> getAllOwners() {
         return facilityOwnerService.findAll();
@@ -61,7 +65,7 @@ public class FacilityOwnerController {
         facilityOwner = facilityOwnerService.save(facilityOwner);
         String hostname = request.getServerName();
         String addressForVerification = "http://" + hostname + ":3000/RegConfirmation?token=" + jwt + "&id=" + facilityOwner.getId();
-        UserController.sendMessage("Account Verification", "Thank you for making a registration in our website. Click the link below to verify your account:" + addressForVerification, facilityOwner.getEmail());
+        mailService.sendEmail("Account Verification", "Thank you for making a registration in our website. Click the link below to verify your account:" + addressForVerification, facilityOwner.getEmail());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 

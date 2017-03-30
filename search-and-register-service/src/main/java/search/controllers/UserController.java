@@ -54,6 +54,9 @@ public class UserController {
     @Autowired
     private FacilityOwnerService ownerService;
 
+    @Autowired
+    private MailService mailService;
+
     @PreAuthorize("hasAnyAuthority('ROLE_USER','ROLE_ADMIN','ROLE_FACILITY_OWNER')")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<User> getUserById(@RequestHeader(value = "Authorization") String token, HttpServletResponse response, @PathVariable("id") int id) {
@@ -262,9 +265,7 @@ public class UserController {
         return jwt;
     }
 
-    static void sendMessage(String subject, String text, String receiver) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Mail.xml");
-        MailService mm = (MailService) context.getBean("mailMail");
-        mm.sendMail(subject, text, receiver);
+    void sendMessage(String subject, String text, String receiver) {
+        mailService.sendEmail(subject, text, receiver);
     }
 }
