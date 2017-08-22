@@ -1,12 +1,15 @@
-Deployment guide:
-  Required files:
+# Deployment guide
+
+## Required files:
 	- reservationsScript.sql 
 	- eureka-server.jar
 	- reservations.jar
 	- search-and-register.jar
 	- admin-panel.jar
 	- security-commons.jar
-  On Windows:
+
+## Running on Windows:
+  
 	I. Install required software :
 		1. JDK 1.8, can be downloaded from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 		2. PostgreSQL 9.4.10 - http://www.enterprisedb.com/products-services-training/pgdownload#windows or https://www.postgresql.org/
